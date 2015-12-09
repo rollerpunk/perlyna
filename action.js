@@ -110,14 +110,23 @@ $(document).scroll(function() {
     if ($(document).scrollTop()>15)
     {
     	$(".menubig").switchClass("menubig","menuscroll")
-
     }
     else
     {
        $(".menuscroll").switchClass("menuscroll","menubig")
     }
 });
-
+// the same for @mobiles
+$(document).on("scrollstop",function(){
+  if ($(document).scrollTop()>15)
+    {
+    	$(".menubig").switchClass("menubig","menuscroll")
+    }
+    else
+    {
+       $(".menuscroll").switchClass("menuscroll","menubig")
+    }
+});
 
 jQuery.fn.switchClass = function(old,neew) {
     $(this).removeClass(old);

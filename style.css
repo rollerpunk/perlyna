@@ -1,3 +1,16 @@
+/* to be deleted */
+#params{
+  font-size: 70%;
+  background-color: #585858;
+  margin-top:30px;
+  border-radius: 3px;
+  border-style: dotted;
+  border-width: 1px;
+
+
+}
+
+/* start*/
 html,body
 {
     background-color: #EEEEEE;
@@ -62,14 +75,13 @@ html,body
 
 .menusmall a{
   text-decoration:none;
-  border-top-style: solid;
   padding: 7px ;
   display: block;
 }
 
 .lactivated
 {
-  border-radius: 5px;
+  border-radius: 20px;
   border-color: #ccc;
   border-style: solid;
   opacity: 0.5;
@@ -91,15 +103,6 @@ html,body
 {
 	width:40px;
   height:40px;
-}
-
-
-
-
-
-
-.showtext{
-  display: block;
 }
 
 .hidetext
@@ -179,14 +182,6 @@ li {
   padding-bottom: 0;
 }
 
-#params{
-  font-size: 70%;
-  background-color: #585858;
-  margin-top:30px;
-  border-radius: 3px;
-  border-style: dotted;
-  border-width: 1px
-}
 
 .showtext h1
 {
@@ -196,7 +191,7 @@ li {
 }
 
 
-#main, #service, #galery,#book, #price,#contact{
+.showtext{
   font-size: 11pt;
   margin-top: 50px;
   margin-right:3%;
@@ -207,11 +202,17 @@ li {
   border-style: solid;
   border-width: 2px;
   border-color:#C0C0C0;
+  display: block;
   
 }
 .intext{
   padding: 10px;
 }
+
+
+
+
+
 
 
 
@@ -249,12 +250,20 @@ html
 
   #logo
   {
-    border-radius: 10px;
+    border-radius: 20px;
     border-color: #A0A0A0;
     border-style: solid;
     opacity: 0.5;
     width:40px;
     height:40px;
+  }
+
+  .topline{
+    height: 40px
+  }
+
+  .showtext{
+    margin-top: 60;
   }
 }
 
@@ -274,3 +283,4 @@ html
   }
 
 }
+
