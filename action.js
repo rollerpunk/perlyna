@@ -1,6 +1,8 @@
 $.browser.device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
 
 
+
+
 jQuery.each( jQuery.browser, function( i, val ) {
   $( "<div>" + i + " : <span>" + val + "</span>" )
   .appendTo( "#params" );
@@ -16,16 +18,13 @@ $(document).ready(function() {
   $("<hr>"+"body").appendTo( "#params" );
 
 
-});
-
+});  
+//---for debug (check what to delite)-------------------------------------
 
 $(window).on('resize', function(){chooselayout()});
 
 
 function chooselayout(){
-
-
-
     var win = $(window); //this = window
   	if (win.width() < 550) 
 	{ //small view
@@ -42,7 +41,6 @@ function chooselayout(){
         {
         	$(".headline").show();
         }
-
 	}
 	else
 	{ // NORMAL view
@@ -87,19 +85,16 @@ $(".barlink").click(function() {
 	if (($("#menu").css("iammedia") == "true" ) || ($("#menu").hasClass("menusmall")))
 	{
 		$("#menu").hide();	
-		$("#menu").addClass("hiden");
-	
+		$("#menu").addClass("hiden");	
 	}
     $(".showtext").removeAttr( 'style' );
     $(".showtext").removeClass("hiden");
-
 
 	var tmp = $(".amenu");
 	tmp.removeClass("amenu");
 	tmp.addClass("barlink");
 	$(this).removeClass("barlink");
 	$(this).addClass("amenu");
-
     
 	tmp = $(".showtext");
 	tmp.removeClass("showtext");
@@ -108,9 +103,25 @@ $(".barlink").click(function() {
 	tmp= $("#"+$(this).attr("textpart"));
 	tmp.addClass("showtext");
 	tmp.removeClass("hidetext");
-
-
-
+	$(document).scrollTop(0);
 });
+
+$(document).scroll(function() {
+    if ($(document).scrollTop()>15)
+    {
+    	$(".menubig").switchClass("menubig","menuscroll")
+
+    }
+    else
+    {
+       $(".menuscroll").switchClass("menuscroll","menubig")
+    }
+});
+
+
+jQuery.fn.switchClass = function(old,neew) {
+    $(this).removeClass(old);
+    $(this).addClass(neew);
+};
 
 
