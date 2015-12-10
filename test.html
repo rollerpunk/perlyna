@@ -3,14 +3,17 @@
 <head>
 	<title>Перлина</title>
     <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, 
-    user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+	
 	<link rel="stylesheet" type="text/css" href="style.css">
+
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script src="jquery.mobile.custom.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false&language=ua" type="text/javascript"></script>
 	
 </head>
-<body>
+<body onload="setmap()">
 <div class="topline">
 	<div class="headline"><h1>Перлина</h1></div>
 	<div class="right">т. <b>097 23-99-111</b></div>
@@ -19,15 +22,15 @@
 <a><img src="perlina.png" id="logo" class="logo"></a>
 
 <div id="menu">
-	<a class="barlink amenu" textpart="main">Головна</a>
+	<a class="barlink" textpart="main">Головна</a>
 	<a class="barlink" textpart="service">Послуги</a>
 	<a class="barlink" textpart="galery">Роботи</a>
 	<a class="barlink" textpart="book">Запис</a>
 	<a class="barlink" textpart="price">Ціни</a>
-	<a class="barlink" textpart="contact">Контакт</a>
+	<a class="barlink amenu" textpart="contact">Контакт</a>
 </div>
 
-	<div id="main" class="showtext">
+	<div id="main" class="hidetext">
 		<h1>Перлина</h1>
 		<div class="intext">
 		Покищо підтримується тільки функція реєстрації за телефоном:<br>
@@ -71,11 +74,23 @@
 	</div>
 
 
-    <div id="contact" class="hidetext">
+    <div id="contact" class="showtext">
 		<h1>Контакт</h1>
 		<div class="intext">
-			Покищо підтримується тільки функція реєстрації за телефоном:<br>
-			<b>097 23-99-111</b>
+			<table>
+				<tr>
+					<td>Адрес: </td>
+					<td>Львів,Сихів, Драгана 15</td>
+				</tr><tr>	
+					<td>Телефон: </td>
+					<th>097 23-99-111</th>
+				</tr><tr>
+					<td>Робочий час: </td>
+					<td>Пн-Пт 10:00-19:00<br>Сб 10:00-14:00<br>Нд вихідний</td>
+				</tr>
+				</table><br>
+				<div id="map_canvas" style="width:100%;"></div>
+						
 		</div>
 	</div>
 

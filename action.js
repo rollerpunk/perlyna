@@ -2,7 +2,6 @@ $.browser.device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mi
 
 
 
-
 jQuery.each( jQuery.browser, function( i, val ) {
   $( "<div>" + i + " : <span>" + val + "</span>" )
   .appendTo( "#params" );
@@ -13,6 +12,10 @@ jQuery.each( jQuery.browser, function( i, val ) {
 $(document).ready(function() {
   // run test on initial page load
   chooselayout()
+  setmap()
+
+
+
   $( "<div>" + "width" + " : <span>" + $(window).width() + "</span>" ).appendTo( "#params" );
   $( "<div>" + "height" + " : <span>" + $(window).height() + "</span>" ).appendTo( "#params" );
   $("<hr>"+"body").appendTo( "#params" );
@@ -22,6 +25,51 @@ $(document).ready(function() {
 //---for debug (check what to delite)-------------------------------------
 
 $(window).on('resize', function(){chooselayout()});
+
+
+
+function setmap(){
+	//set acceptable height of map view area
+    var useragent = navigator.userAgent;
+  	if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) 
+  	{
+
+  		$("#map_canvas").height($(window).height()-100);
+  	}
+    else
+    {
+    	$("#map_canvas").height(500);
+    }
+
+
+    
+//google api
+	var position = new google.maps.LatLng(49.7839334,24.0541865);
+    var myOptions = {
+      zoom: 17,
+      center:position,
+      mapTypeId: google.maps.MapTypeId.ROADMAP 
+    };
+
+    var map = new google.maps.Map(
+        document.getElementById("map_canvas"),
+        myOptions);
+ 
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title:"Перлина"
+    });  
+ 
+    var contentString = '<img src="perlina.png" style="width: 30px; height:30px"><strong> Перлина</strong><br><b>097 23-99-111</b>';
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+ 
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
+}
 
 
 function chooselayout(){
@@ -106,6 +154,35 @@ $(".barlink").click(function() {
 	$(document).scrollTop(0);
 });
 
+
+// the same for @mobiles
+
+
+jQuery.fn.switchClass = function(old,neew) {
+    $(this).removeClass(old);
+    $(this).addClass(neew);
+};
+
+
+/*	
+$(document).on("scrollstop",function(){
+  alert ("mobile scroll: " + $(document).scrollTop());
+  if ($(document).scrollTop()>10)
+    {
+    	$(".menubig").switchClass("menubig","menuscroll")
+    }
+    else
+    {
+       $(".menuscroll").switchClass("menuscroll","menubig")
+    }
+});
+*/
+
+if ($.browser.device==true)
+{
+	$(".menubig").switchClass("menubig","menuscroll")
+}
+
 $(document).scroll(function() {
     if ($(document).scrollTop()>15)
     {
@@ -116,21 +193,4 @@ $(document).scroll(function() {
        $(".menuscroll").switchClass("menuscroll","menubig")
     }
 });
-// the same for @mobiles
-$(document).on("scrollstop",function(){
-  if ($(document).scrollTop()>15)
-    {
-    	$(".menubig").switchClass("menubig","menuscroll")
-    }
-    else
-    {
-       $(".menuscroll").switchClass("menuscroll","menubig")
-    }
-});
-
-jQuery.fn.switchClass = function(old,neew) {
-    $(this).removeClass(old);
-    $(this).addClass(neew);
-};
-
 
