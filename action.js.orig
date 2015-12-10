@@ -46,7 +46,15 @@ function setmap(){
 //google api
 	var position = new google.maps.LatLng(49.7839334,24.0541865);
     var myOptions = {
+<<<<<<< HEAD
+<<<<<<< HEAD
+      zoom: 16,
+=======
       zoom: 17,
+>>>>>>> 889b6ce2840ff777d1637fd25b8bad414194ae90
+=======
+      zoom: 17,
+>>>>>>> 889b6ce2840ff777d1637fd25b8bad414194ae90
       center:position,
       mapTypeId: google.maps.MapTypeId.ROADMAP 
     };
@@ -68,10 +76,6 @@ function setmap(){
  
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.open(map,marker);
-    });
-}
-
-
     });
 }
 
