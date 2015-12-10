@@ -24,9 +24,14 @@ html,body
 {
 	background-color: #DADADA;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 2px 10px 0px rgba(0, 0, 0, 0.12) !important;
-
+  text-shadow: 0px 1px 0px #F3F3F3;
 }
 
+#map_canvas{
+  background-color: #DADADA;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16), 0px 2px 10px 0px rgba(0, 0, 0, 0.12) !important;
+  border-radius: 5px;
+}
 
 
 .menubig,.menuscroll
@@ -166,6 +171,7 @@ li {
 .headline{
   padding: 0;
   display: inline-block;
+  text-shadow: 0px 1px 0px #F3F3F3;
 }
 
 
@@ -188,6 +194,7 @@ li {
   padding-left: 20px;
   margin: 0px;
   border-radius: 3px 3px 0 0;
+  text-shadow: 0px 1px 0px #F3F3F3;
 }
 
 
@@ -209,10 +216,17 @@ li {
   padding: 10px;
 }
 
+table{
+  text-align: left;
+  vertical-align: top;
+}
 
 
 
-
+th, td {
+    padding-left: 15px;
+    padding-top: 5px;
+}
 
 
 
@@ -282,5 +296,4 @@ html
     border-top-right-radius: 5px;
   }
 
-}
-
+};
